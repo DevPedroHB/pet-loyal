@@ -1,0 +1,84 @@
+{
+  "pets": [
+    {
+      "cidade": "São Paulo-SP",
+      "genero": "Macho",
+      "id": "14",
+      "idade": 1,
+      "nome": "Buddy",
+      "porte": "Pequeno",
+      "raca": "Vira-lata",
+      "telefone": "(11) 9456-8723"
+    },
+    {
+      "cidade": "São Paulo-SP",
+      "genero": "Macho",
+      "id": "16",
+      "idade": 3,
+      "nome": "Duque",
+      "porte": "Pequeno",
+      "raca": "Vira-lata",
+      "telefone": "(11) 9638-2746"
+    },
+    {
+      "cidade": "São Paulo-SP",
+      "genero": "Fêmea",
+      "id": "21",
+      "idade": 4,
+      "nome": "Maya",
+      "porte": "Médio",
+      "raca": "Vira-lata",
+      "telefone": "(11) 9526-3184"
+    },
+    {
+      "cidade": "Belo Horizonte-MG",
+      "genero": "Macho",
+      "idade": "2",
+      "nome": "Toby",
+      "porte": "pequeno",
+      "raca": "Vira-lata",
+      "telefone": "(31) 9483-5721",
+      "id": "22"
+    },
+    {
+      "cidade": "Rio de Janeiro-RJ",
+      "genero": "Macho",
+      "id": "24",
+      "idade": 1,
+      "nome": "Scooby",
+      "porte": "Pequeno",
+      "raca": "Vira-lata",
+      "telefone": "(21) 9627-4813"
+    },
+    {
+      "cidade": "Belo Horizonte-MG",
+      "genero": "Fêmea",
+      "id": "25",
+      "idade": 5,
+      "nome": "Princesa",
+      "porte": "Médio",
+      "raca": "Vira-lata",
+      "telefone": "(31) 9546-2817"
+    },
+    {
+      "cidade": "São Paulo-SP",
+      "genero": "Fêmea",
+      "id": "26",
+      "idade": 4,
+      "nome": "Brisa",
+      "porte": "Médio",
+      "raca": "Vira-lata",
+      "telefone": "(11) 9723-6415"
+    },
+    {
+      "cidade": "Rio de Janeiro-RJ",
+      "genero": "Macho",
+      "id": "27",
+      "idade": 3,
+      "nome": "Rufus",
+      "porte": "Médio",
+      "raca": "Vira-lata",
+      "telefone": "(21) 9641-8137"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--zinc-100);
+  display: grid;
+  place-items: center;
+}
+
+.container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}

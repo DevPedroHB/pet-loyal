@@ -1,0 +1,39 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  background: var(--violet-900);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+}
+
+.form {
+  background-color: var(--zinc-100);
+  max-width: 25rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.form small {
+  font-weight: 300;
+  color: var(--zinc-800);
+}
+
+.title {
+  text-align: center;
+}
+
+.title p {
+  color: var(--zinc-800);
+}
+
+.field {
+  width: 100%;
+  display: grid;
+  gap: 0.25rem;
+}

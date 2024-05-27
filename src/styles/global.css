@@ -1,0 +1,108 @@
+:root {
+  /* Zinc Colors */
+  --zinc-50: #fafafa;
+  --zinc-100: #f4f4f5;
+  --zinc-200: #e4e4e7;
+  --zinc-300: #d4d4d8;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+  --zinc-600: #52525b;
+  --zinc-700: #3f3f46;
+  --zinc-800: #27272a;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+  /* Violet Colors */
+  --violet-50: #f5f3ff;
+  --violet-100: #ede9fe;
+  --violet-200: #ddd6fe;
+  --violet-300: #c4b5fd;
+  --violet-400: #a78bfa;
+  --violet-500: #8b5cf6;
+  --violet-600: #7c3aed;
+  --violet-700: #6d28d9;
+  --violet-800: #5b21b6;
+  --violet-900: #4c1d95;
+  --violet-950: #2e1065;
+}
+
+*,
+input,
+textarea {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--zinc-100);
+  color: var(--zinc-900);
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+}
+
+input {
+  width: 100%;
+  background-color: var(--zinc-200);
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+}
+
+input::placeholder {
+  font-weight: 300;
+  color: var(--zinc-400);
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--violet-500);
+  border-radius: 0.25rem;
+}
+
+select {
+  width: 100%;
+  background-color: var(--zinc-200);
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 0.25rem;
+}
+
+select::placeholder {
+  font-weight: 300;
+  color: var(--zinc-400);
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--violet-500);
+  border-radius: 0.25rem;
+}
+
+button {
+  width: fit-content; /* mantém a proporção do conteúdo. */
+  display: flex;
+  gap: 0.25rem;
+  background-color: var(--violet-500);
+  color: var(--violet-100);
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all ease 0.3s;
+}
+
+button:hover {
+  background-color: var(--violet-600);
+}
+
+a {
+  font-weight: 700;
+  color: var(--violet-500);
+  text-decoration: none;
+  transition: all ease 0.3s;
+}
+
+a:hover {
+  color: var(--violet-600);
+}
