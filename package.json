@@ -11,6 +11,7 @@
     "server": "json-server --watch db.json --port 3333"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
     "axios": "^1.7.2",
     "json-server": "1.0.0-beta.0",
     "react": "^18.2.0",
@@ -21,10 +22,6 @@
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
     "vite": "^5.2.0"
   }
 }

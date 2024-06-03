@@ -1,63 +1,64 @@
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { api } from "../../../lib/axios";
+import { getPet } from "../../../data/get-pet";
+import { updatePet } from "../../../data/update-pet";
 import style from "./style.module.css";
 
 export function UpdatePet() {
-  const [cidade, setCidade] = useState("");
-  const [genero, setGenero] = useState("");
-  const [idade, setIdade] = useState("");
-  const [nome, setNome] = useState("");
-  const [porte, setPorte] = useState("pequeno");
-  const [raca, setRaca] = useState("");
-  const [telefone, setTelefone] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
+  const [city, setCity] = useState("");
+  const [gender, setGender] = useState("Macho");
+  const [age, setAge] = useState("");
+  const [name, setName] = useState("");
+  const [size, setSize] = useState("Pequeno");
+  const [breed, setBreed] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const getPet = useCallback(async () => {
-    const response = await api.get(`/pets/${id}`);
-
-    setCidade(response.data.cidade);
-    setGenero(response.data.genero);
-    setIdade(response.data.idade);
-    setNome(response.data.nome);
-    setPorte(response.data.porte);
-    setRaca(response.data.raca);
-    setTelefone(response.data.telefone);
-  }, [id]);
-
-  useEffect(() => {
-    getPet();
-  }, [getPet]);
-
-  async function updatePet(e) {
-    e.preventDefault();
-
+  const getPetCallback = useCallback(async () => {
     try {
-      await api.put(`/pets/${id}`, {
-        cidade,
-        genero,
-        idade,
-        nome,
-        porte,
-        raca,
-        telefone,
-      });
+      const pet = await getPet(id);
 
-      alert("Pet atualizado com sucesso.");
+      setCity(pet.city);
+      setGender(pet.gender);
+      setAge(pet.age);
+      setName(pet.name);
+      setSize(pet.size);
+      setBreed(pet.breed);
+      setPhone(pet.phone);
+    } catch (error) {
+      console.log(`Houve um erro ao buscar o pet: ${error}`);
 
       navigate("/");
-    } catch (error) {
-      console.log(error);
     }
+  }, [id, navigate]);
+
+  async function handleUpdatePet(e) {
+    e.preventDefault();
+
+    await updatePet(id, {
+      city,
+      gender,
+      age,
+      name,
+      size,
+      breed,
+      phone,
+    });
+
+    navigate("/");
   }
+
+  useEffect(() => {
+    getPetCallback();
+  }, [id, getPetCallback]);
 
   return (
     <main className={style.container}>
-      <form className={style.form} onSubmit={(e) => updatePet(e)}>
+      <form className={style.form} onSubmit={(e) => handleUpdatePet(e)}>
         <div className={style.title}>
-          <h1>Atualizar</h1>
-          <p>Atualizar um pet.</p>
+          <h1>Create</h1>
+          <p>Register a pet.</p>
         </div>
         <div className={style.field}>
           <label htmlFor="city">Cidade</label>
@@ -65,21 +66,21 @@ export function UpdatePet() {
             id="city"
             type="text"
             placeholder="Digite a cidade"
-            value={cidade}
-            onChange={(e) => setCidade(e.target.value)}
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
             required
           />
         </div>
         <div className={style.field}>
           <label htmlFor="gender">Gênero</label>
-          <input
+          <select
             id="gender"
-            type="text"
-            placeholder="Digite o gênero"
-            value={genero}
-            onChange={(e) => setGenero(e.target.value)}
-            required
-          />
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          >
+            <option value="Macho">Macho</option>
+            <option value="Fêmea">Fêmea</option>
+          </select>
         </div>
         <div className={style.field}>
           <label htmlFor="age">Idade</label>
@@ -87,8 +88,8 @@ export function UpdatePet() {
             id="age"
             type="number"
             placeholder="Digite a idade"
-            value={idade}
-            onChange={(e) => setIdade(e.target.value)}
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
             required
           />
         </div>
@@ -98,8 +99,8 @@ export function UpdatePet() {
             id="name"
             type="text"
             placeholder="Digite o nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -107,22 +108,22 @@ export function UpdatePet() {
           <label htmlFor="size">Porte</label>
           <select
             id="size"
-            value={porte}
-            onChange={(e) => setPorte(e.target.value)}
+            value={size}
+            onChange={(e) => setSize(e.target.value)}
           >
-            <option value="pequeno">Pequeno</option>
-            <option value="medio">Médio</option>
-            <option value="grande">Grande</option>
+            <option value="Pequeno">Pequeno</option>
+            <option value="Médio">Médio</option>
+            <option value="Grande">Grande</option>
           </select>
         </div>
         <div className={style.field}>
-          <label htmlFor="race">Raça</label>
+          <label htmlFor="breed">Raça</label>
           <input
-            id="race"
+            id="breed"
             type="text"
-            placeholder="Qual á raça do pet"
-            value={raca}
-            onChange={(e) => setRaca(e.target.value)}
+            placeholder="Digite a raça"
+            value={breed}
+            onChange={(e) => setBreed(e.target.value)}
             required
           />
         </div>
@@ -131,9 +132,9 @@ export function UpdatePet() {
           <input
             id="tel"
             type="text"
-            placeholder="Digite seu número"
-            value={telefone}
-            onChange={(e) => setTelefone(e.target.value)}
+            placeholder="Digite o telefone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             required
           />
         </div>

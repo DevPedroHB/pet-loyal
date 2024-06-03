@@ -1,84 +1,56 @@
 {
   "pets": [
     {
-      "cidade": "São Paulo-SP",
-      "genero": "Macho",
-      "id": "14",
-      "idade": 1,
-      "nome": "Buddy",
-      "porte": "Pequeno",
-      "raca": "Vira-lata",
-      "telefone": "(11) 9456-8723"
+      "id": "dfd1",
+      "city": "Valentina de Nossa Senhora",
+      "gender": "Fêmea",
+      "age": 3,
+      "name": "Rafeiro do Alentejo",
+      "size": "Médio",
+      "breed": "cow",
+      "phone": "(93) 0239-3856",
+      "userId": null
     },
     {
-      "cidade": "São Paulo-SP",
-      "genero": "Macho",
-      "id": "16",
-      "idade": 3,
-      "nome": "Duque",
-      "porte": "Pequeno",
-      "raca": "Vira-lata",
-      "telefone": "(11) 9638-2746"
+      "id": "d8ca",
+      "city": "Margarida do Sul",
+      "gender": "Macho",
+      "age": 7,
+      "name": "Thai Ridgeback",
+      "size": "Grande",
+      "breed": "bird",
+      "phone": "(55) 4439-7217",
+      "userId": "1792"
     },
     {
-      "cidade": "São Paulo-SP",
-      "genero": "Fêmea",
-      "id": "21",
-      "idade": 4,
-      "nome": "Maya",
-      "porte": "Médio",
-      "raca": "Vira-lata",
-      "telefone": "(11) 9526-3184"
+      "id": "c62a",
+      "city": "Rafael de Nossa Senhora",
+      "gender": "Macho",
+      "age": 2,
+      "name": "Tyrolean Hound",
+      "size": "Grande",
+      "breed": "bear",
+      "phone": "(28) 5149-7849",
+      "userId": null
     },
     {
-      "cidade": "Belo Horizonte-MG",
-      "genero": "Macho",
-      "idade": "2",
-      "nome": "Toby",
-      "porte": "pequeno",
-      "raca": "Vira-lata",
-      "telefone": "(31) 9483-5721",
-      "id": "22"
-    },
+      "id": "5712",
+      "city": "Gabriel do Sul",
+      "gender": "Fêmea",
+      "age": 3,
+      "name": "Russian Toy",
+      "size": "Médio",
+      "breed": "snake",
+      "phone": "(15) 28267-6293",
+      "userId": "1792"
+    }
+  ],
+  "users": [
     {
-      "cidade": "Rio de Janeiro-RJ",
-      "genero": "Macho",
-      "id": "24",
-      "idade": 1,
-      "nome": "Scooby",
-      "porte": "Pequeno",
-      "raca": "Vira-lata",
-      "telefone": "(21) 9627-4813"
-    },
-    {
-      "cidade": "Belo Horizonte-MG",
-      "genero": "Fêmea",
-      "id": "25",
-      "idade": 5,
-      "nome": "Princesa",
-      "porte": "Médio",
-      "raca": "Vira-lata",
-      "telefone": "(31) 9546-2817"
-    },
-    {
-      "cidade": "São Paulo-SP",
-      "genero": "Fêmea",
-      "id": "26",
-      "idade": 4,
-      "nome": "Brisa",
-      "porte": "Médio",
-      "raca": "Vira-lata",
-      "telefone": "(11) 9723-6415"
-    },
-    {
-      "cidade": "Rio de Janeiro-RJ",
-      "genero": "Macho",
-      "id": "27",
-      "idade": 3,
-      "nome": "Rufus",
-      "porte": "Médio",
-      "raca": "Vira-lata",
-      "telefone": "(21) 9641-8137"
+      "email": "pedroh.bergamo20@gmail.com",
+      "id": "1792",
+      "name": "Pedro Henrique Bérgamo",
+      "password": "123456"
     }
   ]
 }

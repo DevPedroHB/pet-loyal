@@ -1,44 +1,51 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { api } from "../../../lib/axios";
+import { createPet } from "../../../data/create-pet";
+import { faker } from "../../../lib/faker";
 import style from "./style.module.css";
 
 export function CreatePet() {
-  const [cidade, setCidade] = useState("");
-  const [genero, setGenero] = useState("");
-  const [idade, setIdade] = useState("");
-  const [nome, setNome] = useState("");
-  const [porte, setPorte] = useState("pequeno");
-  const [raca, setRaca] = useState("");
-  const [telefone, setTelefone] = useState("");
+  const [city, setCity] = useState("");
+  const [gender, setGender] = useState("Macho");
+  const [age, setAge] = useState("");
+  const [name, setName] = useState("");
+  const [size, setSize] = useState("Pequeno");
+  const [breed, setBreed] = useState("");
+  const [phone, setPhone] = useState("");
   const navigate = useNavigate();
 
-  async function createPet(e) {
+  async function handleCreatePet(e) {
     e.preventDefault();
 
-    try {
-      await api.post("/pets", {
-        cidade,
-        genero,
-        idade,
-        nome,
-        porte,
-        raca,
-        telefone,
-      });
+    await createPet({
+      city,
+      gender,
+      age,
+      name,
+      size,
+      breed,
+      phone,
+    });
 
-      navigate("/");
-    } catch (error) {
-      console.log(error);
-    }
+    navigate("/");
+  }
+
+  function generatePet() {
+    setCity(faker.address.city());
+    setGender(faker.helpers.arrayElement(["Macho", "Fêmea"]));
+    setAge(faker.datatype.number({ min: 1, max: 10 }));
+    setName(faker.animal.dog());
+    setSize(faker.helpers.arrayElement(["Pequeno", "Médio", "Grande"]));
+    setBreed(faker.animal.type());
+    setPhone(faker.phone.number());
   }
 
   return (
     <main className={style.container}>
-      <form className={style.form} onSubmit={(e) => createPet(e)}>
+      <form className={style.form} onSubmit={(e) => handleCreatePet(e)}>
         <div className={style.title}>
-          <h1>Criar</h1>
-          <p>Cadastrar um pet.</p>
+          <h1>Create</h1>
+          <p>Register a pet.</p>
         </div>
         <div className={style.field}>
           <label htmlFor="city">Cidade</label>
@@ -46,21 +53,21 @@ export function CreatePet() {
             id="city"
             type="text"
             placeholder="Digite a cidade"
-            value={cidade}
-            onChange={(e) => setCidade(e.target.value)}
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
             required
           />
         </div>
         <div className={style.field}>
           <label htmlFor="gender">Gênero</label>
-          <input
+          <select
             id="gender"
-            type="text"
-            placeholder="Digite o gênero"
-            value={genero}
-            onChange={(e) => setGenero(e.target.value)}
-            required
-          />
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          >
+            <option value="Macho">Macho</option>
+            <option value="Fêmea">Fêmea</option>
+          </select>
         </div>
         <div className={style.field}>
           <label htmlFor="age">Idade</label>
@@ -68,8 +75,8 @@ export function CreatePet() {
             id="age"
             type="number"
             placeholder="Digite a idade"
-            value={idade}
-            onChange={(e) => setIdade(e.target.value)}
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
             required
           />
         </div>
@@ -79,8 +86,8 @@ export function CreatePet() {
             id="name"
             type="text"
             placeholder="Digite o nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
@@ -88,22 +95,22 @@ export function CreatePet() {
           <label htmlFor="size">Porte</label>
           <select
             id="size"
-            value={porte}
-            onChange={(e) => setPorte(e.target.value)}
+            value={size}
+            onChange={(e) => setSize(e.target.value)}
           >
-            <option value="pequeno">Pequeno</option>
-            <option value="medio">Médio</option>
-            <option value="grande">Grande</option>
+            <option value="Pequeno">Pequeno</option>
+            <option value="Médio">Médio</option>
+            <option value="Grande">Grande</option>
           </select>
         </div>
         <div className={style.field}>
-          <label htmlFor="race">Raça</label>
+          <label htmlFor="breed">Raça</label>
           <input
-            id="race"
+            id="breed"
             type="text"
-            placeholder="Qual á raça do pet"
-            value={raca}
-            onChange={(e) => setRaca(e.target.value)}
+            placeholder="Digite a raça"
+            value={breed}
+            onChange={(e) => setBreed(e.target.value)}
             required
           />
         </div>
@@ -112,13 +119,16 @@ export function CreatePet() {
           <input
             id="tel"
             type="text"
-            placeholder="Digite seu número"
-            value={telefone}
-            onChange={(e) => setTelefone(e.target.value)}
+            placeholder="Digite o telefone"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
             required
           />
         </div>
         <button type="submit">Cadastrar</button>
+        <button type="button" onClick={() => generatePet()}>
+          Gerar pet
+        </button>
       </form>
     </main>
   );
