@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { CreatePet } from "./pages/app/create-pet";
+import { Dashboard } from "./pages/app/dashboard";
 import { Home } from "./pages/app/home";
 import { UpdatePet } from "./pages/app/update-pet";
 import { SignIn } from "./pages/auth/sign-in";
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   },
   {
     path: "/create-pet",

@@ -14,7 +14,7 @@ export function SignIn() {
 
     await signIn({ email, password });
 
-    navigate("/");
+    navigate("/dashboard");
   }
 
   return (

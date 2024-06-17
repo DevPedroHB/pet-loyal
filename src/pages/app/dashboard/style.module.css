@@ -1,0 +1,59 @@
+.container {
+  margin: 0 auto;
+  max-width: 64rem;
+  width: 100%;
+  padding: 1.5rem 4rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.header div {
+  display: flex;
+  gap: 1rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--zinc-200);
+  border-radius: 0.25rem;
+}
+
+.table th {
+  font-weight: 700;
+  padding: 0.5rem;
+  border-bottom: 0.125rem solid var(--zinc-300);
+  text-align: center;
+}
+
+.table td {
+  font-weight: 300;
+  padding: 0.5rem;
+  border-bottom: 0.125rem solid var(--zinc-300);
+  color: var(--zinc-800);
+}
+
+.table tr {
+  cursor: pointer;
+  transition: all ease 0.2s;
+}
+
+.table tr:hover {
+  background-color: var(--zinc-100);
+}
+
+.table__options {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.table button {
+  padding: 0.25rem;
+}
